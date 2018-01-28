@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/insertions"
+        android:icon="@drawable/ic_home"
+        android:title="@string/espace_administratif" />
+    <item
+        android:id="@+id/enseignant"
+        android:icon="@drawable/ic_teatcher"
+        android:title="@string/enseignant" />
+    <item
+        android:id="@+id/eleve"
+        android:icon="@drawable/ic_student"
+        android:title="@string/eleves" />
+    <item
+        android:id="@+id/emplois"
+        android:icon="@drawable/ic_emploi"
+        android:title="@string/emplois" />
+    <item
+        android:id="@+id/affiches"
+        android:icon="@drawable/ic_affiches"
+        android:title="@string/affiches" />
+    <item
+        android:id="@+id/quitter"
+        android:icon="@drawable/ic_quit"
+        android:title="Quitter" />
+
+</menu>

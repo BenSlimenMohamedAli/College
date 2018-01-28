@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Collége</string>
+
+
+    <!-- Drawer strings -->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="prompt">Sélectionné un type</string>
+
+    <!--La liste des insertions-->
+    <string-array name="insertions">
+        <item>insérer une classe</item>
+        <item>Afficher les classes</item>
+        <item>Insérer une salle</item>
+        <item>Afficher les salles</item>
+        <item>Insérer un éleve</item>
+        <item>Afficher les éleves</item>
+        <item>Insérer une matiére</item>
+        <item>Afficher les matiéres</item>
+        <item>Insérer un enseignant</item>
+        <item>Afficher les enseignants</item>
+        <item>Insérer un enseignement</item>
+        <item>Afficher les enseignements</item>
+        <item>Insérer une séance</item>
+        <item>Afficher les séances</item>
+    </string-array>
+
+    <!-- Les heures du jour-->
+    <string-array name="heures">
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+    </string-array>
+
+    <!-- Les jours -->
+    <string-array name="jours">
+        <item>Lundi</item>
+        <item>Mardi</item>
+        <item>Mercredi</item>
+        <item>Jeudi</item>
+        <item>Vendredi</item>
+        <item>Samedi</item>
+    </string-array>
+
+    <!-- La liste des choix pour insérer une salle-->
+    <string-array name="choixTypeSalles">
+        <item>Normale</item>
+        <item>Video</item>
+        <item>Retro</item>
+        <item>Laboratoire</item>
+        <item>Sport</item>
+    </string-array>
+
+    <!--    Navigation menu items   -->
+    <string name="espace_administratif">Espace administratif</string>
+    <string name="enseignant">Enseignants</string>
+    <string name="eleves">Eleves</string>
+    <string name="emplois">Emplois du temp</string>
+    <string name="affiches">Affiches administratifs</string>
+
+    <!-- Les buttons    -->
+    <string name="insert_cours">Insérer le cours</string>
+    <string name="insert_ens">Insérer l\'enseignant</string>
+
+    <!-- Les fields -->
+    <string name="type_cours">Type cours</string>
+    <string name="cin">CIN</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+
+
+</resources>

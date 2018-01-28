@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTango">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/AstroCoders"
+                android:layout_width="194dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:fontFamily="serif-monospace"
+                android:paddingTop="15dp"
+                android:text="AstroCoders"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/white"></LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
