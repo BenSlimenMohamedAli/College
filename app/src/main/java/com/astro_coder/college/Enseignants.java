@@ -3,6 +3,8 @@ package com.astro_coder.college;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +15,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.astro_coder.college.Gestion.Enseignant;
-import com.dali.astrocoder.college.R;
 
 
 public class Enseignants extends AppCompatActivity {
@@ -23,11 +24,15 @@ public class Enseignants extends AppCompatActivity {
     private Database databaseHelper;
     private SQLiteDatabase sqliteDB;
     private Enseignant ens;
+    private Snackbar snackbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enseignants);
-        /* Modification du action bar */
+        /*
+            Modification du action bar
+        */
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -35,9 +40,14 @@ public class Enseignants extends AppCompatActivity {
 
 
         /*
-            La connection
+            Préparation de la snackbar : couleur et durée
          */
-        // initialisation de la base de données
+
+
+        /*
+            La connection
+            initialisation de la base de données
+         */
         databaseHelper = new Database(Enseignants.this, "College", null, 2);
         sqliteDB = databaseHelper.getWritableDatabase();
         sqliteDB.setForeignKeyConstraintsEnabled(true);
@@ -45,6 +55,11 @@ public class Enseignants extends AppCompatActivity {
         button = (Button) findViewById(R.id.connect);
         e1 = (EditText) findViewById(R.id.ut);
         e2 = (EditText) findViewById(R.id.ps);
+
+        /*
+            Si l'utilisateur demande de consulter ses séences
+            Il faut q'uil existe dans la base de données
+         */
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +82,16 @@ public class Enseignants extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     } else {
-                        Toast.makeText(Enseignants.this, "Vérifier vos données", Toast.LENGTH_LONG).show();
+                        snackbar = Snackbar.make(view,"Vérifier vos données",Snackbar.LENGTH_INDEFINITE);
+                        View v = snackbar.getView();
+                        v.setBackgroundColor(Color.RED);
+                        snackbar.show();
                     }
                 }catch (Exception e){
-                    Toast.makeText(Enseignants.this,"Il faut insérer vos données", Toast.LENGTH_LONG).show();
+                    snackbar = Snackbar.make(view,"Il faut insérer vos données",Snackbar.LENGTH_INDEFINITE);
+                    View v = snackbar.getView();
+                    v.setBackgroundColor(Color.RED);
+                    snackbar.show();
                 }
             }
         });

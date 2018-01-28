@@ -1,9 +1,7 @@
 package com.astro_coder.college;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,8 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
-import com.dali.astrocoder.college.R;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -74,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    /*
+        Le menu du ActionBar
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -82,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /*
+        Si l'utilisateur sélectionne une option
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -91,12 +92,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+        Si l'utilisateur cliquer sur back
+      */
     @Override
     public void onBackPressed() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Quitter l'application ?");
         alertDialogBuilder
-                .setMessage("Clicker sur Oui pour quitter!")
+                .setMessage("Cliquer sur Oui pour quitter!")
                 .setCancelable(false)
                 .setPositiveButton("Oui",
                         new DialogInterface.OnClickListener() {

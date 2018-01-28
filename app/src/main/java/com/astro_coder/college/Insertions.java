@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +18,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.astro_coder.college.Gestion.*;
-import com.dali.astrocoder.college.R;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,8 @@ public class Insertions extends AppCompatActivity {
     private Dialog dialog;
     private Button button;
 
+    private Snackbar snackbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +54,9 @@ public class Insertions extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         arrayAdapter = ArrayAdapter.createFromResource(this,R.array.insertions,R.layout.list_item);
         listView.setAdapter(arrayAdapter);
-
+        /*
+            Ouvrir la base de données
+         */
         databaseHelper = new Database(Insertions.this, "College", null, 2);
         sqliteDB = databaseHelper.getWritableDatabase();
         sqliteDB.setForeignKeyConstraintsEnabled(true);
@@ -62,7 +67,7 @@ public class Insertions extends AppCompatActivity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, final View view1, int i, long l) {
                 switch (i){
                     /* Une classe */
                     case 0 :    init(Insertions.this,"Insérer une classe",R.layout.insert_classe);
@@ -70,11 +75,12 @@ public class Insertions extends AppCompatActivity {
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Classe.insérer_classe(Insertions.this,dialog,sqliteDB);
+                                        Classe.insérer_classe(dialog,sqliteDB,view,view1);
                                     }
                                 });break;
+
                     case 1 :    init(Insertions.this,"La liste des classes",R.layout.affiche);
-                                Classe.afficher_classes(Insertions.this,dialog,sqliteDB);break;
+                                Classe.afficher_classes(Insertions.this,dialog,sqliteDB,view1);break;
                     /* Une salle */
                     case 2 :    init(Insertions.this,"Insérer une salle",R.layout.insert_salle);
                                 button = (Button) dialog.findViewById(R.id.insérer_salle);
@@ -159,7 +165,9 @@ public class Insertions extends AppCompatActivity {
         });
     }
 
-    // initialisation
+    /*
+        initialisation du dialog
+      */
     public void init(Context c, String s, int id){
         dialog = new Dialog(Insertions.this,R.style.cust_dialog);
         dialog.setContentView(id);
@@ -167,6 +175,9 @@ public class Insertions extends AppCompatActivity {
         dialog.show();
     }
 
+    /*
+        Si l'utilisateur sélectionne HomeButton
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId() == android.R.id.home){
@@ -178,6 +189,9 @@ public class Insertions extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+        si l'utilisateur cliquer sur back
+     */
     @Override
     public void onBackPressed() {
         Intent i = new Intent(Insertions.this,MainActivity.class);
@@ -185,10 +199,26 @@ public class Insertions extends AppCompatActivity {
         finish();
     }
 
-    // Il faut fermer la base de données si lactivité est finis
+    /*
+        Il faut fermer la base de données si lactivité est finis
+      */
     @Override
     protected void onStop() {
         super.onStop();
         sqliteDB.close();
+    }
+
+    /*
+        Si l'utilisateur résume l'application aprés un stop il faur réouvrir la base de données
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        /*
+            Ouvrir la base de données
+         */
+        databaseHelper = new Database(Insertions.this, "College", null, 2);
+        sqliteDB = databaseHelper.getWritableDatabase();
+        sqliteDB.setForeignKeyConstraintsEnabled(true);
     }
 }

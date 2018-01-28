@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.dali.astrocoder.college.R;
-
 public class Affiches extends AppCompatActivity {
     Toolbar toolbar;
     @Override
@@ -15,11 +13,16 @@ public class Affiches extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affiches);
 
+    //  la bar d'action
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // Enable the home button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //
         getSupportActionBar().setTitle("Affiches Administratifs");
     }
+
+    /*
+        si l'utilisateur sélectionne une option
+     */
 
     public boolean onOptionsItemSelected(MenuItem item) {
 
