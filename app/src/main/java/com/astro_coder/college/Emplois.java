@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.dali.astrocoder.college.R;
 
 public class Emplois extends AppCompatActivity {
     Toolbar toolbar;

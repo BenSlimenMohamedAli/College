@@ -54,7 +54,9 @@ public class Classe {
      *  Les méthodes
      */
 
-    // Insérer une classe
+    /*
+        Insérer une classe
+      */
     public static void insérer_classe(Dialog dialog, SQLiteDatabase sqliteDB,View view,View view1){
         Snackbar snackbar;
         EditText edit1,edit2;
@@ -68,12 +70,12 @@ public class Classe {
             v.setBackgroundColor(Color.GREEN);
             snackbar.show();
         }catch(SQLiteConstraintException e){
-            snackbar = Snackbar.make(view,"La classe est déja existe",Snackbar.LENGTH_INDEFINITE);
+            snackbar = Snackbar.make(view,"La classe est déja existe",Snackbar.LENGTH_LONG);
             View v = snackbar.getView();
             v.setBackgroundColor(Color.RED);
             snackbar.show();
         } catch(Exception e){
-            snackbar = Snackbar.make(view,"Vérifier vos données",Snackbar.LENGTH_INDEFINITE);
+            snackbar = Snackbar.make(view,"Vérifier vos données",Snackbar.LENGTH_LONG);
             View v = snackbar.getView();
             v.setBackgroundColor(Color.RED);
             snackbar.show();
@@ -81,7 +83,9 @@ public class Classe {
 
     }
 
-    //  Afficher une classe
+    /*
+        Afficher La liste des classe
+       */
     public static void afficher_classes(final Context context, final Dialog dialog, final SQLiteDatabase sqliteDB){
         final ArrayList<Classe> classes = new ArrayList<>();
         final Snackbar[] snackbar = new Snackbar[1];

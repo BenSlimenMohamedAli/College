@@ -12,7 +12,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-import com.dali.astrocoder.college.R;
+
+import com.astro_coder.college.R;
 
 import java.util.ArrayList;
 

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,7 +15,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.astro_coder.college.Gestion.Seance;
-import com.dali.astrocoder.college.R;
 
 import java.util.ArrayList;
 
@@ -84,11 +84,13 @@ public class Ens extends AppCompatActivity {
                 list.setAdapter(arrayAdapter1);
                 dialog.show();
 
-                //  si l'utilisateur qliquer pour un long temp il va marquer une absence
+                /*
+                  si l'utilisateur cliquer pour un long temp il va marquer une absence
+                   */
                 list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                     @Override
                     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                        Snackbar.make(view,"Hello mr dali",Snackbar.LENGTH_INDEFINITE).show();
                         return false;
                     }
                 });

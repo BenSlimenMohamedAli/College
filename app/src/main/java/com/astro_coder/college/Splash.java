@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.dali.astrocoder.college.R;
+
 import com.felipecsl.gifimageview.library.GifImageView;
 
 import org.apache.commons.io.IOUtils;

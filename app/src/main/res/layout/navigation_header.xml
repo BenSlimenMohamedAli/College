@@ -12,13 +12,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:background="@color/colorTango">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="70dp"
-                android:layout_height="60dp"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
                 android:layout_weight="0"
                 app:srcCompat="@drawable/logo" />
 
@@ -28,8 +28,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0"
                 android:fontFamily="serif-monospace"
-                android:paddingTop="15dp"
-                android:text="AstroCoders"
+                android:paddingTop="10dp"
+                android:text=" AstroCoders"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"
@@ -39,7 +39,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="2dp"
             android:background="@color/white"></LinearLayout>
     </LinearLayout>
 

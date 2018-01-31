@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.dali.astrocoder.college.R;
+import com.astro_coder.college.R;
 
 import java.util.ArrayList;
 
@@ -80,28 +82,41 @@ public class Eleve {
         Les méthodes
      */
 
-    public static void insérer_eleve(Context context, Dialog dialog, SQLiteDatabase sqliteDB){
-        EditText edit1,edit2,edit3,edit4,edit5;
+    public static void insérer_eleve(Dialog dialog, SQLiteDatabase sqliteDB,View view,View view1){
+        EditText edit1,edit2,edit3,edit4,edit5,edit6;
         edit1 = (EditText) dialog.findViewById(R.id.num_inscri);
         edit2 = (EditText) dialog.findViewById(R.id.nom_eleve);
         edit3 = (EditText) dialog.findViewById(R.id.prenom_eleve);
         edit4 = (EditText) dialog.findViewById(R.id.num_niveau);
         edit5 = (EditText) dialog.findViewById(R.id.num_classe);
+        edit6 = (EditText) dialog.findViewById(R.id.email_parent);
+        Snackbar snackbar;
 
         try{
             sqliteDB.execSQL("insert into eleve values ("+edit1.getText().toString()+",'"+edit2.getText().toString()+
-                    "','"+edit3.getText().toString()+"',"+edit4.getText().toString()+","+edit5.getText().toString()+")");
-            Toast.makeText(context,"L'éleve est inséré", Toast.LENGTH_LONG).show();
+                    "','"+edit3.getText().toString()+"',"+edit4.getText().toString()+","+edit5.getText().toString()+",'"+edit6.getText().toString()+"')");
             dialog.hide();
+            snackbar = Snackbar.make(view1,"L'éleve est inséré",Snackbar.LENGTH_LONG);
+            View v = snackbar.getView();
+            v.setBackgroundColor(Color.GREEN);
+            snackbar.show();
         }catch(SQLiteConstraintException e){
-            Toast.makeText(context,"La classe n'existe pas", Toast.LENGTH_LONG).show();
+            snackbar = Snackbar.make(view,"La classe n'existe pas",Snackbar.LENGTH_LONG);
+            View v = snackbar.getView();
+            v.setBackgroundColor(Color.RED);
+            snackbar.show();
         }
         catch(Exception e){
-            Toast.makeText(context,"Il faut insérer un éleve", Toast.LENGTH_LONG).show();
+            snackbar = Snackbar.make(view,"Il faut insérer un éleve",Snackbar.LENGTH_LONG);
+            View v = snackbar.getView();
+            v.setBackgroundColor(Color.RED);
+            snackbar.show();
         }
     }
 
-    //  Affichage
+    /*
+        Affichage de la liste des éleves
+       */
     public static void afficher_eleves(final Context context, Dialog dialog, final SQLiteDatabase sqliteDB){
         final ArrayList<Eleve> eleves = new ArrayList<Eleve>();
         Cursor resultSet = sqliteDB.rawQuery("Select * from eleve order by num_inscri",null);

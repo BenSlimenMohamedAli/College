@@ -2,6 +2,7 @@ package com.astro_coder.college;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle Toggle;
     private NavigationView navigationView;
+    private MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);   //  get the support of action bar
+
         //  Setting the drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         Toggle = new ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close);   // Setting the action bar toggle
         drawerLayout.addDrawerListener(Toggle); // adding the listener
         Toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // Enable the home button
+
+        mp = MediaPlayer.create(MainActivity.this, R.raw.bu); // effet sonore
 
         /*
          *  Navigation view selections
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
+                mp.start();
                 Intent i;
                 switch (item.getItemId()){
                     case R.id.insertions :  i = new Intent(MainActivity.this,Insertions.class);
@@ -85,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        mp.start();
 
         if(Toggle.onOptionsItemSelected(item)){
             return true;
@@ -97,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
       */
     @Override
     public void onBackPressed() {
+        mp.start();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Quitter l'application ?");
         alertDialogBuilder

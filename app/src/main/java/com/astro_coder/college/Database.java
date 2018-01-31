@@ -24,7 +24,7 @@ public class Database extends SQLiteOpenHelper {
          */
         sqLiteDatabase.execSQL("create table if not exists salles(num_salle integer primary key autoincrement, capacité integer not null, type_salle varchar(20) not null)");
         /*
-            eleve(num_inscri,nom,prenom,#num_niveau,#num_inscri)
+            eleve(num_inscri,nom,prenom,#num_niveau,#num_classe,email_parent)
          */
         sqLiteDatabase.execSQL("create table if not exists eleve(num_inscri integer(4) primary key, nom text, prenom text, num_niveau integer, num_classe integer,email_parent text" +
                                 ", foreign key (num_niveau,num_classe) references classe(num_niveau,num_classe) on delete cascade)");

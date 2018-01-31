@@ -10,7 +10,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="279dp"
+        android:layout_height="343dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -34,7 +34,7 @@
             android:hint="Classe"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.232"
+            app:layout_constraintHorizontal_bias="0.386"
             app:layout_constraintStart_toEndOf="@+id/num_niveau"
             app:layout_constraintTop_toBottomOf="@+id/prenom_eleve" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/num_niveau"
             android:layout_width="68dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="60dp"
             android:ems="10"
             android:gravity="center"
             android:hint="Niveau"
@@ -60,10 +60,10 @@
             android:gravity="center"
             android:hint="prénom d'éleve"
             android:inputType="text"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nom_eleve"
-            android:textColor="@color/colorTango"/>
+            app:layout_constraintTop_toBottomOf="@+id/nom_eleve" />
 
         <EditText
             android:id="@+id/num_inscri"
@@ -76,10 +76,10 @@
             android:gravity="center"
             android:hint="Numéro d'inscription"
             android:inputType="number"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/colorTango"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/nom_eleve"
@@ -92,10 +92,10 @@
             android:gravity="center"
             android:hint="Nom d'éleve"
             android:inputType="text"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/num_inscri"
-            android:textColor="@color/colorTango"/>
+            app:layout_constraintTop_toBottomOf="@+id/num_inscri" />
 
         <Button
             android:id="@+id/insérer_eleve"
@@ -103,15 +103,28 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/buanim"
             android:onClick="insérer_eleve"
             android:text="Insérer l'éleve"
-            android:textColor="@color/white"
+            android:textColor="@color/colorTango"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/num_niveau" />
+            app:layout_constraintTop_toBottomOf="@+id/email_parent" />
+
+        <EditText
+            android:id="@+id/email_parent"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Email du parent"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/num_niveau"
+            tools:layout_editor_absoluteX="53dp" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

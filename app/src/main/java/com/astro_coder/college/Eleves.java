@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.dali.astrocoder.college.R;
 
 public class Eleves extends AppCompatActivity {
     Toolbar toolbar;

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class Insertions extends AppCompatActivity {
     private Button button;
 
     private Snackbar snackbar;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,8 @@ public class Insertions extends AppCompatActivity {
         sqliteDB = databaseHelper.getWritableDatabase();
         sqliteDB.setForeignKeyConstraintsEnabled(true);
 
+        mp = MediaPlayer.create(Insertions.this, R.raw.bu); // effet sonore
+
         /*
          *  Ajout de item Click listener a la listview
          */
@@ -68,6 +72,7 @@ public class Insertions extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, final View view1, int i, long l) {
+                mp.start();
                 switch (i){
                     /* Une classe */
                     case 0 :    init(Insertions.this,"Insérer une classe",R.layout.insert_classe);
@@ -80,7 +85,7 @@ public class Insertions extends AppCompatActivity {
                                 });break;
 
                     case 1 :    init(Insertions.this,"La liste des classes",R.layout.affiche);
-                                Classe.afficher_classes(Insertions.this,dialog,sqliteDB,view1);break;
+                                Classe.afficher_classes(Insertions.this,dialog,sqliteDB);break;
                     /* Une salle */
                     case 2 :    init(Insertions.this,"Insérer une salle",R.layout.insert_salle);
                                 button = (Button) dialog.findViewById(R.id.insérer_salle);
@@ -98,7 +103,7 @@ public class Insertions extends AppCompatActivity {
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Eleve.insérer_eleve(Insertions.this,dialog,sqliteDB);
+                                        Eleve.insérer_eleve(dialog,sqliteDB,view,view1);
                                     }
                                 });break;
                     case 5 :    init(Insertions.this,"La liste des éleves",R.layout.affiche);
@@ -180,6 +185,7 @@ public class Insertions extends AppCompatActivity {
      */
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        mp.start();
         if(item.getItemId() == android.R.id.home){
             Intent i = new Intent(Insertions.this,MainActivity.class);
             startActivity(i);
@@ -194,6 +200,7 @@ public class Insertions extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
+        mp.start();
         Intent i = new Intent(Insertions.this,MainActivity.class);
         startActivity(i);
         finish();
