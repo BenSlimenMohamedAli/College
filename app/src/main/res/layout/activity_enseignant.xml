@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.astro_coder.college.Ens"
-    android:background="@drawable/shape3">
+    android:background="@color/colorTango">
     <!---
        The Tooolbar
        -->
@@ -32,7 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/colorPine"></LinearLayout>
+            android:background="@color/white"></LinearLayout>
 
         <!-- Floating button -->
 

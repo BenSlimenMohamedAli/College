@@ -61,7 +61,7 @@ public class Ens extends AppCompatActivity {
                     resultSet.getString(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6)));
         }
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>
-                (Ens.this, R.layout.list_item, listStrings);
+                (Ens.this, R.layout.spinner_item, listStrings);
         listView.setAdapter(arrayAdapter);
         /*
             Evenments des elements de la liste
@@ -90,6 +90,12 @@ public class Ens extends AppCompatActivity {
                 list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                     @Override
                     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        /*
+                            Marquer une absence
+                         */
+
+
+
                         Snackbar.make(view,"Hello mr dali",Snackbar.LENGTH_INDEFINITE).show();
                         return false;
                     }

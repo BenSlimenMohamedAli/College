@@ -122,6 +122,7 @@ public class Eleve {
         Cursor resultSet = sqliteDB.rawQuery("Select * from eleve order by num_inscri",null);
         ListView listAffiche = (ListView) dialog.findViewById(R.id.affiche);
         final ArrayList listStrings = new ArrayList<String>();
+
         while(resultSet.moveToNext()){
             listStrings.add(resultSet.getString(0)+" || "+resultSet.getString(1)+
                     " || "+resultSet.getString(2)+ " || "+resultSet.getString(3)+" || "+resultSet.getString(4));

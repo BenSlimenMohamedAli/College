@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle Toggle;
     private NavigationView navigationView;
-    private MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         Toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // Enable the home button
 
-        mp = MediaPlayer.create(MainActivity.this, R.raw.bu); // effet sonore
-
         /*
          *  Navigation view selections
          */
@@ -46,27 +43,31 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                mp.start();
                 Intent i;
                 switch (item.getItemId()){
                     case R.id.insertions :  i = new Intent(MainActivity.this,Insertions.class);
                                             startActivity(i);
+                                            MainActivity.this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                                             finish();
                                             break;
                     case R.id.enseignant :  i = new Intent(MainActivity.this,Enseignants.class);
                                             startActivity(i);
+                                            MainActivity.this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                                             finish();
                                             break;
                     case R.id.eleve :   i = new Intent(MainActivity.this,Eleves.class);
                                         startActivity(i);
+                                        MainActivity.this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                                         finish();
                                         break;
                     case R.id.emplois :     i = new Intent(MainActivity.this,Emplois.class);
                                             startActivity(i);
+                                            MainActivity.this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                                             finish();
                                             break;
                     case R.id.affiches :    i = new Intent(MainActivity.this,Affiches.class);
                                             startActivity(i);
+                                            MainActivity.this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                                             finish();
                                             break;
                     case R.id.quitter   :   onBackPressed(); break;
@@ -91,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        mp.start();
 
         if(Toggle.onOptionsItemSelected(item)){
             return true;
@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
       */
     @Override
     public void onBackPressed() {
-        mp.start();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Quitter l'application ?");
         alertDialogBuilder

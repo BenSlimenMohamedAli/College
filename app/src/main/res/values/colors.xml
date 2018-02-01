@@ -2,8 +2,8 @@
 <resources>
     <color name="colorPrimary">#102c4f</color>
     <color name="colorPrimaryDark">#161514</color>
-    <color name="colorAccent">#9b0303</color>
-    <color name="colorPine">#047b7c</color>
+    <color name="colorAccent">#102cff</color>
+    <color name="colorPine">#047bfc</color>
     <color name="colorTango">#f6f7f8</color>
     <color name="white">#FFFFFF</color>
 </resources>

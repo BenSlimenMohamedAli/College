@@ -132,7 +132,7 @@ public class Seance {
 
             while(resultSet.moveToNext()){
                 classes.add(new Classe(resultSet.getInt(0),resultSet.getInt(1)));
-                listStrings.add(resultSet.getString(0)+" || "+resultSet.getString(1));
+                listStrings.add("Classe : "+resultSet.getString(0)+" || "+resultSet.getString(1));
             }
             if(listStrings.size() == 0){
                 listStrings.add("Il n'ya aucune classe !!");
@@ -160,7 +160,7 @@ public class Seance {
 
             while(resultSet.moveToNext()){
                 salles.add(new Salle(resultSet.getInt(0),resultSet.getInt(1),resultSet.getString(2)));
-                listStrings.add(resultSet.getString(0)+" || "+resultSet.getString(1)+" || "+resultSet.getString(2));
+                listStrings.add("Salle :"+resultSet.getString(0)+" || "+resultSet.getString(1)+" || "+resultSet.getString(2));
             }
             if(listStrings.size() == 0){
                 listStrings.add("Il n'ya aucune salle !!");

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -62,21 +64,31 @@ public class Enseignant {
     /*
         Methodes
      */
-    public static void insérer_enseignant(Context context, Dialog dialog, SQLiteDatabase sqliteDB){
+    public static void insérer_enseignant(Context context, Dialog dialog, SQLiteDatabase sqliteDB,View view, View view1){
         EditText edit1,edit2,edit3;
         edit1 = (EditText) dialog.findViewById(R.id.cin_ens);
         edit2 = (EditText) dialog.findViewById(R.id.nom_ens);
         edit3 = (EditText) dialog.findViewById(R.id.prenom_ens);
+        Snackbar snackbar;
 
         try{
             sqliteDB.execSQL("insert into enseignant values ("+edit1.getText().toString()+",'"+edit2.getText().toString()+
                     "','"+edit3.getText().toString()+"')");
-            Toast.makeText(context,"L'enseignant est inséré", Toast.LENGTH_LONG).show();
+            snackbar = Snackbar.make(view1,"L'enseignant est inséré",Snackbar.LENGTH_LONG);
+            View v = snackbar.getView();
+            v.setBackgroundColor(Color.GREEN);
+            snackbar.show();
             dialog.hide();
         } catch(SQLiteConstraintException e){
-            Toast.makeText(context,"L'enseignant est déja existe", Toast.LENGTH_LONG).show();
+            snackbar = Snackbar.make(view,"L'enseignant est déja existe",Snackbar.LENGTH_LONG);
+            View v = snackbar.getView();
+            v.setBackgroundColor(Color.RED);
+            snackbar.show();
         }catch(Exception e){
-            Toast.makeText(context,"Vérifier vos données", Toast.LENGTH_LONG).show();
+            snackbar = Snackbar.make(view,"Vérifier vos données",Snackbar.LENGTH_LONG);
+            View v = snackbar.getView();
+            v.setBackgroundColor(Color.RED);
+            snackbar.show();
         }
     }
 
@@ -86,6 +98,8 @@ public class Enseignant {
         Cursor resultSet = sqliteDB.rawQuery("Select * from enseignant order by nom",null);
         ListView listAffiche = (ListView) dialog.findViewById(R.id.affiche);
         final ArrayList listStrings = new ArrayList<String>();
+        final Snackbar[] snackbar = new Snackbar[1];
+
         while(resultSet.moveToNext()){
             listStrings.add(resultSet.getString(1)+" | "+resultSet.getString(2)+" | "+resultSet.getString(0));
             ens.add(new Enseignant(resultSet.getInt(0),resultSet.getString(1),resultSet.getString(2)));
@@ -101,7 +115,11 @@ public class Enseignant {
                 ens.remove(i);
                 listStrings.remove(i);
                 arrayAdapter.notifyDataSetChanged();
-                Toast.makeText(context,"L'enseignant est supprimé", Toast.LENGTH_LONG).show();
+
+                snackbar[0] = Snackbar.make(view,"L'enseignant est supprimé",Snackbar.LENGTH_SHORT);
+                View v = snackbar[0].getView();
+                v.setBackgroundColor(Color.GREEN);
+                snackbar[0].show();
                 return false;
             }
         });

@@ -107,6 +107,7 @@ public class Classe {
                 classes.remove(i);
                 listStrings.remove(i);
                 arrayAdapter.notifyDataSetChanged();
+
                 snackbar[0] = Snackbar.make(view,"La classe est supprimée",Snackbar.LENGTH_SHORT);
                 View v = snackbar[0].getView();
                 v.setBackgroundColor(Color.GREEN);

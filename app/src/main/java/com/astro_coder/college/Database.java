@@ -51,7 +51,13 @@ public class Database extends SQLiteOpenHelper {
         /*
             Absence(date,#heure,#num_inscri)
          */
-        sqLiteDatabase.execSQL("create table if not exists absence (date_abs date,heure integer,num_inscri integer,justification boolean,foreign key(num_inscri) references eleve(num_inscri),primary key(date_abs,heure,num_inscri))");
+        sqLiteDatabase.execSQL("create table if not exists absence (date_abs date,heure integer,num_inscri integer,foreign key(num_inscri) references eleve(num_inscri),primary key(date_abs,heure,num_inscri))");
+        /*
+            Justification(date,#heure,#num_inscri)
+         */
+        sqLiteDatabase.execSQL("create table if not exists justification (num_inscri integer, jour text,heure integer, cause text, foreign key (num_inscri) references eleve(num_inscri) " +
+                                "on delete cascade, foreign key (jour, heure) references seance(jour, heure),primary key(num_inscri, jour, heure ))");
+
     }
 
     @Override

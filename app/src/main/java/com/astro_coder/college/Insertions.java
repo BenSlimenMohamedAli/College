@@ -38,7 +38,6 @@ public class Insertions extends AppCompatActivity {
     private Button button;
 
     private Snackbar snackbar;
-    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +62,6 @@ public class Insertions extends AppCompatActivity {
         sqliteDB = databaseHelper.getWritableDatabase();
         sqliteDB.setForeignKeyConstraintsEnabled(true);
 
-        mp = MediaPlayer.create(Insertions.this, R.raw.bu); // effet sonore
 
         /*
          *  Ajout de item Click listener a la listview
@@ -72,7 +70,6 @@ public class Insertions extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, final View view1, int i, long l) {
-                mp.start();
                 switch (i){
                     /* Une classe */
                     case 0 :    init(Insertions.this,"Insérer une classe",R.layout.insert_classe);
@@ -126,7 +123,7 @@ public class Insertions extends AppCompatActivity {
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Enseignant.insérer_enseignant(Insertions.this,dialog,sqliteDB);
+                                        Enseignant.insérer_enseignant(Insertions.this,dialog,sqliteDB,view,view1);
                                     }
                                 }); break;
                     case 9 :    init(Insertions.this,"Liste des enseignants",R.layout.affiche);
@@ -185,7 +182,6 @@ public class Insertions extends AppCompatActivity {
      */
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        mp.start();
         if(item.getItemId() == android.R.id.home){
             Intent i = new Intent(Insertions.this,MainActivity.class);
             startActivity(i);
@@ -200,7 +196,7 @@ public class Insertions extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        mp.start();
+
         Intent i = new Intent(Insertions.this,MainActivity.class);
         startActivity(i);
         finish();
