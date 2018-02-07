@@ -5,17 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/buanim">
+    android:background="@color/colorTango">
 
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="343dp"
+        android:layout_height="380dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@color/colorTango"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,32 +23,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.97">
 
-        <EditText
-            android:id="@+id/num_classe"
-            android:layout_width="68dp"
+        <Spinner
+            android:id="@+id/numero"
+            android:layout_width="238dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Classe"
-            android:inputType="number"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:spinnerMode="dialog"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.386"
-            app:layout_constraintStart_toEndOf="@+id/num_niveau"
-            app:layout_constraintTop_toBottomOf="@+id/prenom_eleve" />
-
-        <EditText
-            android:id="@+id/num_niveau"
-            android:layout_width="68dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Niveau"
-            android:inputType="number"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prenom_eleve" />
+            app:layout_constraintTop_toBottomOf="@+id/email_parent" />
+
+        <Spinner
+            android:id="@+id/numero_classe"
+            android:layout_width="238dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numero" />
 
         <EditText
             android:id="@+id/prenom_eleve"
@@ -100,7 +99,7 @@
         <Button
             android:id="@+id/insérer_eleve"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -111,7 +110,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_parent" />
+            app:layout_constraintTop_toBottomOf="@+id/numero_classe" />
 
         <EditText
             android:id="@+id/email_parent"
@@ -123,8 +122,8 @@
             android:hint="Email du parent"
             android:inputType="text"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintTop_toBottomOf="@+id/num_niveau"
-            tools:layout_editor_absoluteX="53dp" />
+            app:layout_constraintTop_toBottomOf="@+id/prenom_eleve"
+            tools:layout_editor_absoluteX="47dp" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

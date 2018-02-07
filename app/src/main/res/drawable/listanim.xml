@@ -5,7 +5,7 @@
             android:shape="rectangle">
             <gradient
                 android:startColor="@color/colorPrimary"
-                android:endColor="@color/colorPrimaryDark"
+                android:endColor="@color/colorPine"
                 android:angle="45"/>
             <padding android:left="6dp"
                 android:right="6dp"
@@ -24,6 +24,7 @@
                 android:top="6dp"
                 android:bottom="6dp"/>
             <stroke android:color="@color/colorPrimary" android:width="0.1dp"/>
+            <corners android:radius="2dp"/>
         </shape>
     </item>
 </selector>

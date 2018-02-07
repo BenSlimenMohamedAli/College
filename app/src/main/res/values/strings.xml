@@ -24,6 +24,8 @@
         <item>Afficher les enseignements</item>
         <item>Insérer une séance</item>
         <item>Afficher les séances</item>
+        <item>Insérer une justification</item>
+        <item>Afficher les justifications</item>
     </string-array>
 
     <!-- Les heures du jour-->
@@ -57,6 +59,30 @@
         <item>Retro</item>
         <item>Laboratoire</item>
         <item>Sport</item>
+    </string-array>
+
+    <!-- Levels -->
+    <string-array name="levels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!-- Classrooms -->
+    <string-array name="classrooms">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
     <!--    Navigation menu items   -->

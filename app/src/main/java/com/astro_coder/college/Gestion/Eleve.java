@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.astro_coder.college.R;
@@ -83,25 +84,26 @@ public class Eleve {
      */
 
     public static void insérer_eleve(Dialog dialog, SQLiteDatabase sqliteDB,View view,View view1){
-        EditText edit1,edit2,edit3,edit4,edit5,edit6;
+        EditText edit1,edit2,edit3,edit6;
+        Spinner edit4,edit5;
         edit1 = (EditText) dialog.findViewById(R.id.num_inscri);
         edit2 = (EditText) dialog.findViewById(R.id.nom_eleve);
         edit3 = (EditText) dialog.findViewById(R.id.prenom_eleve);
-        edit4 = (EditText) dialog.findViewById(R.id.num_niveau);
-        edit5 = (EditText) dialog.findViewById(R.id.num_classe);
+        edit4 = (Spinner) dialog.findViewById(R.id.numero);
+        edit5 = (Spinner) dialog.findViewById(R.id.numero_classe);
         edit6 = (EditText) dialog.findViewById(R.id.email_parent);
         Snackbar snackbar;
 
         try{
             sqliteDB.execSQL("insert into eleve values ("+edit1.getText().toString()+",'"+edit2.getText().toString()+
-                    "','"+edit3.getText().toString()+"',"+edit4.getText().toString()+","+edit5.getText().toString()+",'"+edit6.getText().toString()+"')");
+                    "','"+edit3.getText().toString()+"',"+edit4.getSelectedItem().toString()+","+edit5.getSelectedItem().toString()+",'"+edit6.getText().toString()+"')");
             dialog.hide();
             snackbar = Snackbar.make(view1,"L'éleve est inséré",Snackbar.LENGTH_LONG);
             View v = snackbar.getView();
             v.setBackgroundColor(Color.GREEN);
             snackbar.show();
         }catch(SQLiteConstraintException e){
-            snackbar = Snackbar.make(view,"La classe n'existe pas",Snackbar.LENGTH_LONG);
+            snackbar = Snackbar.make(view,"L'éleve déja existe ou la classe n'existe pas",Snackbar.LENGTH_LONG);
             View v = snackbar.getView();
             v.setBackgroundColor(Color.RED);
             snackbar.show();

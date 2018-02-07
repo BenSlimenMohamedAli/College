@@ -11,7 +11,8 @@
         -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/container">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -41,22 +42,83 @@
                 android:id="@+id/back"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape3">
+                android:background="@color/colorTango">
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="365dp"
-                    android:layout_height="427dp"
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButton4"
+                                android:layout_width="150dp"
+                                android:layout_height="210dp"
+                                android:layout_weight="1"
+                                android:padding="12dp"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.714"
+                                app:layout_constraintStart_toEndOf="@+id/imageButton3"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.916"
+                                app:srcCompat="@drawable/std_testi" />
+
+                            <ImageButton
+                                android:id="@+id/imageButton3"
+                                android:layout_width="150dp"
+                                android:layout_height="210dp"
+                                android:layout_weight="1"
+                                android:padding="12dp"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.931"
+                                app:srcCompat="@drawable/lib" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginStart="2dp"
                     android:layout_marginTop="8dp"
+                    android:background="@drawable/buanim"
+                    android:fontFamily="cursive"
+                    android:gravity="center"
+                    android:text="Le succés est un art"
+                    android:textColor="@color/colorTango"
+                    android:textSize="30sp"
+                    android:textStyle="bold|italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.666"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@drawable/std_testi" />
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+                    app:layout_constraintVertical_bias="1.0" />
+
             </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>

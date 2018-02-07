@@ -21,6 +21,7 @@ import android.widget.Spinner;
 import com.astro_coder.college.Gestion.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Insertions extends AppCompatActivity {
     private Toolbar toolbar;
@@ -39,6 +40,9 @@ public class Insertions extends AppCompatActivity {
 
     private Snackbar snackbar;
 
+    private ArrayList<String> itemname = new ArrayList<>();
+    private String[] items ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +56,12 @@ public class Insertions extends AppCompatActivity {
         /*
          *  Ajout des elements a la listview
          */
+        items = getResources().getStringArray(R.array.insertions); // get the elements from arrays
         listView = (ListView) findViewById(R.id.listView);
-        arrayAdapter = ArrayAdapter.createFromResource(this,R.array.insertions,R.layout.list_item);
-        listView.setAdapter(arrayAdapter);
+        itemname.addAll(Arrays.asList(items));
+        listView.setAdapter(new ArrayAdapter<String>(
+                this, R.layout.list_item,
+                R.id.Item,itemname));
         /*
             Ouvrir la base de données
          */
@@ -73,6 +80,12 @@ public class Insertions extends AppCompatActivity {
                 switch (i){
                     /* Une classe */
                     case 0 :    init(Insertions.this,"Insérer une classe",R.layout.insert_classe);
+                                Spinner sp4 = (Spinner) dialog.findViewById(R.id.niveau);
+                                Spinner sp5 = (Spinner) dialog.findViewById(R.id.numero);
+                                ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(Insertions.this,R.array.levels,R.layout.spinner_item);
+                                sp4.setAdapter(adapter4);
+                                ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(Insertions.this,R.array.classrooms,R.layout.spinner_item);
+                                sp5.setAdapter(adapter5);
                                 button = (Button) dialog.findViewById(R.id.insérer_classe);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -85,6 +98,9 @@ public class Insertions extends AppCompatActivity {
                                 Classe.afficher_classes(Insertions.this,dialog,sqliteDB);break;
                     /* Une salle */
                     case 2 :    init(Insertions.this,"Insérer une salle",R.layout.insert_salle);
+                                Spinner sp2 = (Spinner) dialog.findViewById(R.id.type_salle);
+                                ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(Insertions.this,R.array.choixTypeSalles,R.layout.spinner_item);
+                                sp2.setAdapter(adapter1);
                                 button = (Button) dialog.findViewById(R.id.insérer_salle);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -96,6 +112,12 @@ public class Insertions extends AppCompatActivity {
                                 Salle.afficher_salles(Insertions.this,dialog,sqliteDB);break;
                     /*  Un éleve */
                     case 4 :    init(Insertions.this,"Insérer un éleve",R.layout.insert_eleve);
+                            Spinner sp6 = (Spinner) dialog.findViewById(R.id.numero);
+                            Spinner sp7 = (Spinner) dialog.findViewById(R.id.numero_classe);
+                            ArrayAdapter<CharSequence> adapter7 = ArrayAdapter.createFromResource(Insertions.this,R.array.levels,R.layout.spinner_item);
+                            sp6.setAdapter(adapter7);
+                            ArrayAdapter<CharSequence> adapter6 = ArrayAdapter.createFromResource(Insertions.this,R.array.classrooms,R.layout.spinner_item);
+                            sp7.setAdapter(adapter6);
                                 button = (Button) dialog.findViewById(R.id.insérer_eleve);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -147,11 +169,11 @@ public class Insertions extends AppCompatActivity {
                                 classes = Seance.ajouter_classe(Insertions.this,dialog,sqliteDB);
                                 salles = Seance.ajouter_salles(Insertions.this,dialog,sqliteDB);
                                 Spinner sp1 = (Spinner) dialog.findViewById(R.id.heures);
-                                Spinner sp2 = (Spinner) dialog.findViewById(R.id.jours);
-                                ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(Insertions.this,R.array.heures,R.layout.spinner_item);
-                                sp1.setAdapter(adapter1);
+                                Spinner sp3 = (Spinner) dialog.findViewById(R.id.jours);
+                                ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(Insertions.this,R.array.heures,R.layout.spinner_item);
+                                sp1.setAdapter(adapter3);
                                 ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(Insertions.this,R.array.jours,R.layout.spinner_item);
-                                sp2.setAdapter(adapter2);
+                                sp3.setAdapter(adapter2);
                                 button = (Button) dialog.findViewById(R.id.inserer_seance);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -185,6 +207,7 @@ public class Insertions extends AppCompatActivity {
         if(item.getItemId() == android.R.id.home){
             Intent i = new Intent(Insertions.this,MainActivity.class);
             startActivity(i);
+            Insertions.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
             finish();
             return true;
         }
@@ -199,6 +222,7 @@ public class Insertions extends AppCompatActivity {
 
         Intent i = new Intent(Insertions.this,MainActivity.class);
         startActivity(i);
+        Insertions.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
         finish();
     }
 

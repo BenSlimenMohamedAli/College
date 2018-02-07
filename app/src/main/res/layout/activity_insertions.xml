@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="55dp"
-            android:background="@drawable/shape3"></ListView>
+            android:background="@color/colorTango"></ListView>
     </LinearLayout>
 
 </RelativeLayout>

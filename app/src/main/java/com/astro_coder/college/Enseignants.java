@@ -80,6 +80,7 @@ public class Enseignants extends AppCompatActivity {
                         b.putInt("cin",ens.getCin_ens());
                         i.putExtras(b);
                         startActivity(i);
+                        Enseignants.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
                         finish();
                     } else {
                         snackbar = Snackbar.make(view,"Vérifier vos données",Snackbar.LENGTH_INDEFINITE);
@@ -102,6 +103,7 @@ public class Enseignants extends AppCompatActivity {
         if(item.getItemId() == android.R.id.home){
             Intent i = new Intent(Enseignants.this,MainActivity.class);
             startActivity(i);
+            Enseignants.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
             finish();
             return true;
         }
@@ -112,6 +114,7 @@ public class Enseignants extends AppCompatActivity {
     public void onBackPressed() {
         Intent i = new Intent(Enseignants.this,MainActivity.class);
         startActivity(i);
+        Enseignants.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
         finish();
     }
 

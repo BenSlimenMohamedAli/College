@@ -40,6 +40,7 @@ public class Splash extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(Splash.this,MainActivity.class);
                 startActivity(i);
+                Splash.this.overridePendingTransition(R.anim.scale_up, R.anim.scale_down);
                 finish();
             }
         },SPLASH_TIMEOUT);

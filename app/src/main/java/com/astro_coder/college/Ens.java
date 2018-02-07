@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,6 +40,7 @@ public class Ens extends AppCompatActivity {
         // récupération des données
         Bundle b = getIntent().getExtras();
         getSupportActionBar().setTitle(b.getString("name"));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // initialisation de la base de données
         databaseHelper = new Database(Ens.this, "College", null, 2);
@@ -96,7 +98,7 @@ public class Ens extends AppCompatActivity {
 
 
 
-                        Snackbar.make(view,"Hello mr dali",Snackbar.LENGTH_INDEFINITE).show();
+                        Snackbar.make(view,"L'éleve est marqué absent",Snackbar.LENGTH_INDEFINITE).show();
                         return false;
                     }
                 });
@@ -104,10 +106,26 @@ public class Ens extends AppCompatActivity {
         });
     }
 
+    /*
+        Si l'utilisateur sélectionne HomeButton
+     */
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home){
+            Intent i = new Intent(Ens.this,MainActivity.class);
+            startActivity(i);
+            Ens.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void onBackPressed() {
         Intent i = new Intent(Ens.this,MainActivity.class);
         startActivity(i);
+        Ens.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
         finish();
         Toast.makeText(Ens.this,"Vous avez quittez",Toast.LENGTH_LONG).show();
     }

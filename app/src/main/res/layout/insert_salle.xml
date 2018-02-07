@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/buanim">
+    android:background="@color/colorTango">
 
 
     <android.support.constraint.ConstraintLayout
@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@color/colorTango"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +33,11 @@
             android:gravity="center"
             android:hint="capacité"
             android:inputType="number"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/type_salle"
-            android:textColor="@color/colorPrimary"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/insérer_salle"
@@ -52,7 +53,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/capacité" />
+            app:layout_constraintTop_toBottomOf="@+id/type_salle" />
 
         <Spinner
             android:id="@+id/type_salle"
@@ -61,15 +62,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/choixTypeSalles"
-            android:popupBackground="@color/colorPrimaryDark"
-            android:prompt="@string/prompt"
+            android:background="@color/white"
+            android:gravity="center"
             android:spinnerMode="dialog"
-            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/capacité" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

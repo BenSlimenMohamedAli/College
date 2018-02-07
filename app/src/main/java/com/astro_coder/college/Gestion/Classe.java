@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Space;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.astro_coder.college.R;
@@ -59,11 +61,11 @@ public class Classe {
       */
     public static void insérer_classe(Dialog dialog, SQLiteDatabase sqliteDB,View view,View view1){
         Snackbar snackbar;
-        EditText edit1,edit2;
-        edit1 = (EditText) dialog.findViewById(R.id.niveau);
-        edit2 = (EditText) dialog.findViewById(R.id.numero);
+        Spinner edit1,edit2;
+        edit1 = (Spinner) dialog.findViewById(R.id.niveau);
+        edit2 = (Spinner) dialog.findViewById(R.id.numero);
         try{
-            sqliteDB.execSQL("insert into classe values("+edit1.getText().toString()+","+edit2.getText().toString()+")");
+            sqliteDB.execSQL("insert into classe values("+edit1.getSelectedItem().toString()+","+edit2.getSelectedItem().toString()+")");
             dialog.hide();
             snackbar = Snackbar.make(view1,"La classe est insérée",Snackbar.LENGTH_LONG);
             View v = snackbar.getView();

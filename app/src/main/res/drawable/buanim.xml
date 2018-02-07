@@ -20,6 +20,7 @@
             android:shape="rectangle">
             <gradient
                 android:startColor="@color/colorPrimaryDark"
+                android:centerColor="@color/colorPine"
                 android:endColor="@color/colorPrimary"
                 android:angle="45"/>
             <padding android:left="6dp"
