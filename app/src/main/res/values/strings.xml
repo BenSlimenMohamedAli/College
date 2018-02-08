@@ -11,21 +11,20 @@
     <!--La liste des insertions-->
     <string-array name="insertions">
         <item>insérer une classe</item>
-        <item>Afficher les classes</item>
+        <item>Liste des classes</item>
         <item>Insérer une salle</item>
-        <item>Afficher les salles</item>
+        <item>Liste des salles</item>
         <item>Insérer un éleve</item>
-        <item>Afficher les éleves</item>
+        <item>Liste des éleves</item>
         <item>Insérer une matiére</item>
-        <item>Afficher les matiéres</item>
+        <item>Liste des les matiéres</item>
         <item>Insérer un enseignant</item>
-        <item>Afficher les enseignants</item>
+        <item>Liste des enseignants</item>
         <item>Insérer un enseignement</item>
-        <item>Afficher les enseignements</item>
+        <item>Liste des enseignements</item>
         <item>Insérer une séance</item>
-        <item>Afficher les séances</item>
+        <item>Liste des séances</item>
         <item>Insérer une justification</item>
-        <item>Afficher les justifications</item>
     </string-array>
 
     <!-- Les heures du jour-->
@@ -89,7 +88,7 @@
     <string name="espace_administratif">Espace administratif</string>
     <string name="enseignant">Enseignants</string>
     <string name="eleves">Eleves</string>
-    <string name="emplois">Emplois du temp</string>
+    <string name="emplois">Emplois du temps</string>
     <string name="affiches">Affiches administratifs</string>
 
     <!-- Les buttons    -->

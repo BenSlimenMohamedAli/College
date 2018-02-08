@@ -103,4 +103,19 @@ public class Salle {
             }
         });
     }
+
+    /*
+        Compter le nombre des salles
+     */
+    public static String nb_salles(SQLiteDatabase sqliteDB){
+        String s ="";
+        Cursor resultSet = sqliteDB.rawQuery("Select * from salles",null);
+        int count =0;
+
+        while(resultSet.moveToNext()){
+            count++;
+        }
+        s+= count+"";
+        return s;
+    }
 }

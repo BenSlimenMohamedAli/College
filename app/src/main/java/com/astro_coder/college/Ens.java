@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -96,9 +97,11 @@ public class Ens extends AppCompatActivity {
                             Marquer une absence
                          */
 
-
-
-                        Snackbar.make(view,"L'éleve est marqué absent",Snackbar.LENGTH_INDEFINITE).show();
+                        // TODO  // Cette tache necessite une connection reseau
+                        Snackbar snackbar = Snackbar.make(view,"L'éleve est marqué absent",Snackbar.LENGTH_LONG);
+                        View v = snackbar.getView();
+                        v.setBackgroundColor(Color.GREEN);
+                        snackbar.show();
                         return false;
                     }
                 });

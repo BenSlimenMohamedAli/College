@@ -124,4 +124,19 @@ public class Enseignant {
             }
         });
     }
+
+    /*
+        Compter le nombre des enseignant
+     */
+    public static String nb_ens(SQLiteDatabase sqliteDB){
+        String s ="";
+        Cursor resultSet = sqliteDB.rawQuery("Select * from enseignant",null);
+        int count =0;
+
+        while(resultSet.moveToNext()){
+            count++;
+        }
+        s+= count+"";
+        return s;
+    }
 }

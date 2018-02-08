@@ -118,4 +118,16 @@ public class Classe {
             }
         });
     }
+
+    public static String nb_classes(SQLiteDatabase sqliteDB){
+        String s ="";
+        Cursor resultSet = sqliteDB.rawQuery("Select * from classe",null);
+        int count =0;
+
+        while(resultSet.moveToNext()){
+            count++;
+        }
+        s+= count+"";
+        return s;
+    }
 }

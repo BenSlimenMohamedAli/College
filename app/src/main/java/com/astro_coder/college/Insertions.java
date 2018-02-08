@@ -79,7 +79,7 @@ public class Insertions extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, final View view1, int i, long l) {
                 switch (i){
                     /* Une classe */
-                    case 0 :    init(Insertions.this,"Insérer une classe",R.layout.insert_classe);
+                    case 0 :    init(Insertions.this,R.layout.insert_classe);
                                 Spinner sp4 = (Spinner) dialog.findViewById(R.id.niveau);
                                 Spinner sp5 = (Spinner) dialog.findViewById(R.id.numero);
                                 ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(Insertions.this,R.array.levels,R.layout.spinner_item);
@@ -94,10 +94,10 @@ public class Insertions extends AppCompatActivity {
                                     }
                                 });break;
 
-                    case 1 :    init(Insertions.this,"La liste des classes",R.layout.affiche);
+                    case 1 :    init(Insertions.this,R.layout.affiche);
                                 Classe.afficher_classes(Insertions.this,dialog,sqliteDB);break;
                     /* Une salle */
-                    case 2 :    init(Insertions.this,"Insérer une salle",R.layout.insert_salle);
+                    case 2 :    init(Insertions.this,R.layout.insert_salle);
                                 Spinner sp2 = (Spinner) dialog.findViewById(R.id.type_salle);
                                 ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(Insertions.this,R.array.choixTypeSalles,R.layout.spinner_item);
                                 sp2.setAdapter(adapter1);
@@ -108,10 +108,10 @@ public class Insertions extends AppCompatActivity {
                                         Salle.insérer_salle(Insertions.this,dialog,sqliteDB);
                                     }
                                 });break;
-                    case 3 :    init(Insertions.this,"La liste des salles",R.layout.affiche);
+                    case 3 :    init(Insertions.this,R.layout.affiche);
                                 Salle.afficher_salles(Insertions.this,dialog,sqliteDB);break;
                     /*  Un éleve */
-                    case 4 :    init(Insertions.this,"Insérer un éleve",R.layout.insert_eleve);
+                    case 4 :    init(Insertions.this,R.layout.insert_eleve);
                             Spinner sp6 = (Spinner) dialog.findViewById(R.id.numero);
                             Spinner sp7 = (Spinner) dialog.findViewById(R.id.numero_classe);
                             ArrayAdapter<CharSequence> adapter7 = ArrayAdapter.createFromResource(Insertions.this,R.array.levels,R.layout.spinner_item);
@@ -125,10 +125,10 @@ public class Insertions extends AppCompatActivity {
                                         Eleve.insérer_eleve(dialog,sqliteDB,view,view1);
                                     }
                                 });break;
-                    case 5 :    init(Insertions.this,"La liste des éleves",R.layout.affiche);
+                    case 5 :    init(Insertions.this,R.layout.affiche);
                                 Eleve.afficher_eleves(Insertions.this,dialog,sqliteDB);break;
                     /*  Une matiére */
-                    case 6 :    init(Insertions.this,"Insérer une matiére",R.layout.insert_matiere);
+                    case 6 :    init(Insertions.this,R.layout.insert_matiere);
                                 button = (Button) dialog.findViewById(R.id.insérer_mat);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -137,10 +137,10 @@ public class Insertions extends AppCompatActivity {
                                     }
                                 });
                                 break;
-                    case 7 :    init(Insertions.this,"Liste des matiéres",R.layout.affiche);
+                    case 7 :    init(Insertions.this,R.layout.affiche);
                                 Matiére.afficher_matiére(Insertions.this,dialog,sqliteDB);break;
                     /* Un enseignant */
-                    case 8 :    init(Insertions.this,"Insérer un enseignant",R.layout.insert_ens);
+                    case 8 :    init(Insertions.this,R.layout.insert_ens);
                                 button = (Button) dialog.findViewById(R.id.insérer_enseignant);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -148,10 +148,10 @@ public class Insertions extends AppCompatActivity {
                                         Enseignant.insérer_enseignant(Insertions.this,dialog,sqliteDB,view,view1);
                                     }
                                 }); break;
-                    case 9 :    init(Insertions.this,"Liste des enseignants",R.layout.affiche);
+                    case 9 :    init(Insertions.this,R.layout.affiche);
                                 Enseignant.afficher_enseignants(Insertions.this,dialog,sqliteDB); break;
                     /*  Un enseignement */
-                    case 10 :   init(Insertions.this,"Insérer un enseignement",R.layout.insert_eg);
+                    case 10 :   init(Insertions.this,R.layout.insert_eg);
                                 button = (Button) dialog.findViewById(R.id.insérer_eg);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -160,11 +160,11 @@ public class Insertions extends AppCompatActivity {
                                     }
                                 });
                                 break;
-                    case 11 :   init(Insertions.this,"Liste des enseignements",R.layout.affiche);
+                    case 11 :   init(Insertions.this,R.layout.affiche);
                                 Enseignement.afficher_enseignements(Insertions.this,dialog,sqliteDB);
                                  break;
                     /*  Une séance */
-                    case 12 :   init(Insertions.this,"Ajouter une séance",R.layout.insert_seance);
+                    case 12 :   init(Insertions.this,R.layout.insert_seance);
                                 enseignements = Seance.ajouter_ens(Insertions.this,dialog,sqliteDB);
                                 classes = Seance.ajouter_classe(Insertions.this,dialog,sqliteDB);
                                 salles = Seance.ajouter_salles(Insertions.this,dialog,sqliteDB);
@@ -181,8 +181,25 @@ public class Insertions extends AppCompatActivity {
                                         Seance.insérer_seance(Insertions.this,dialog,sqliteDB,enseignements,classes,salles);
                                     }
                                 });break;
-                    case 13 :   init(Insertions.this,"Liste des séances",R.layout.affiche);
+                    case 13 :   init(Insertions.this,R.layout.affiche);
                                 Seance.afficher_séances(Insertions.this,dialog,sqliteDB);break;
+                    /* Une Justification */
+                    case 14 :   init(Insertions.this,R.layout.insert_just);
+                                Justification.ajouter_eleves(Insertions.this,dialog,sqliteDB);
+                                Spinner sp8 = (Spinner) dialog.findViewById(R.id.heures);
+                                Spinner sp9 = (Spinner) dialog.findViewById(R.id.jours);
+                                ArrayAdapter<CharSequence> adapter9 = ArrayAdapter.createFromResource(Insertions.this,R.array.heures,R.layout.spinner_item);
+                                sp8.setAdapter(adapter9);
+                                ArrayAdapter<CharSequence> adapter8 = ArrayAdapter.createFromResource(Insertions.this,R.array.jours,R.layout.spinner_item);
+                                sp9.setAdapter(adapter8);
+                                button = (Button) dialog.findViewById(R.id.insert_just);
+                                button.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Justification.insérer_Justification(Insertions.this,dialog,sqliteDB,view,view1);
+                                    }
+                                });
+                                break;
 
                 }
             }
@@ -192,10 +209,9 @@ public class Insertions extends AppCompatActivity {
     /*
         initialisation du dialog
       */
-    public void init(Context c, String s, int id){
+    public void init(Context c, int id){
         dialog = new Dialog(Insertions.this,R.style.cust_dialog);
         dialog.setContentView(id);
-        dialog.setTitle(s);
         dialog.show();
     }
 

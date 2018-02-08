@@ -3,6 +3,7 @@ package com.astro_coder.college;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.astro_coder.college.Gestion.Classe;
+import com.astro_coder.college.Gestion.Eleve;
+import com.astro_coder.college.Gestion.Enseignant;
+import com.astro_coder.college.Gestion.Salle;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -27,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private Dialog dialog;
     private Intent i;
+    private Database databaseHelper;
+    private SQLiteDatabase sqliteDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);   //  get the support of action bar
+
+        // Ouvrir la base de données
+        databaseHelper = new Database(MainActivity.this, "College", null, 2);
+        sqliteDB = databaseHelper.getWritableDatabase();
+        sqliteDB.setForeignKeyConstraintsEnabled(true);
 
         //  Setting the drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -68,11 +82,6 @@ public class MainActivity extends AppCompatActivity {
                                             MainActivity.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
                                             finish();
                                             break;
-                    case R.id.eleve :   i = new Intent(MainActivity.this,Eleves.class);
-                                        startActivity(i);
-                                        MainActivity.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
-                                        finish();
-                                        break;
                     case R.id.emplois :     i = new Intent(MainActivity.this,Emplois.class);
                                             startActivity(i);
                                             MainActivity.this.overridePendingTransition(R.anim.scale_up, R.anim.rotate1);
@@ -89,6 +98,26 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
+        /*
+            Les statistiques
+         */
+        // Le nombre des salles
+        TextView num_salles = (TextView) findViewById(R.id.nb_salles);
+        num_salles.setText(Salle.nb_salles(sqliteDB));
+
+        // Le nombre des classes
+        TextView num_classes = (TextView) findViewById(R.id.nb_classes);
+        num_classes.setText(Classe.nb_classes(sqliteDB));
+
+        // Le nombre des classes
+        TextView num_eleves = (TextView) findViewById(R.id.nb_eleves);
+        num_eleves.setText(Eleve.nb_eleves(sqliteDB));
+
+        // Le nombre des classes
+        TextView num_ens = (TextView) findViewById(R.id.nb_ens);
+        num_ens.setText(Enseignant.nb_ens(sqliteDB));
     }
     /*
         Le menu du ActionBar

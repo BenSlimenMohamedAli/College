@@ -9,10 +9,6 @@
         android:icon="@drawable/ic_teatcher"
         android:title="@string/enseignant" />
     <item
-        android:id="@+id/eleve"
-        android:icon="@drawable/ic_student"
-        android:title="@string/eleves" />
-    <item
         android:id="@+id/emplois"
         android:icon="@drawable/ic_emploi"
         android:title="@string/emplois" />

@@ -3,7 +3,7 @@
     android:shareInterpolator="false" >
 
     <scale
-        android:duration="1000"
+        android:duration="500"
         android:fromXScale="1.0"
         android:fromYScale="0.0"
         android:pivotX="50%"

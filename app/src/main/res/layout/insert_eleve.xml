@@ -116,14 +116,17 @@
             android:id="@+id/email_parent"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
             android:gravity="center"
             android:hint="Email du parent"
             android:inputType="text"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintTop_toBottomOf="@+id/prenom_eleve"
-            tools:layout_editor_absoluteX="47dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prenom_eleve" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
